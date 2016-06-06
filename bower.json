@@ -1,0 +1,26 @@
+{
+  "name": "polmira.online",
+  "authors": [
+    "i.i."
+  ],
+  "description": "floors laminate design",
+  "main": "",
+  "keywords": [
+    "floor",
+    "laminate",
+    "plinth",
+    "artvinyl"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4"
+  }
+}

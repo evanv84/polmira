@@ -1,0 +1,538 @@
+@import "susy";
+@import "breakpoint";
+
+//variables
+@import "variables";
+
+//mixins
+@import "mixins";
+
+//partials
+@import "buttons";
+@import "nav";
+
+//fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,cyrillic);
+
+//Susy settings
+$susy: (
+  columns: 12,
+  gutter-position: inside,
+  gutters: 0,
+  math: fluid,
+  output: float,
+);
+
+*, :after, :before {
+	box-sizing: border-box;
+}
+
+section {
+	clear: both;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 300;
+	overflow-x: hidden;
+	background-color: $beige;
+	color: $brown;
+}
+
+.wrapper {
+	height: 6025px;
+    overflow: hidden;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+header#top {
+	background: url(../img/header-bg-clear.png) center center no-repeat;
+	@include background-size(cover);
+	//@include container(100%);
+	height: 1600px;
+	position: relative;
+	z-index: 52;
+
+	.offer-box {
+		@include span(7 first);
+		margin-top: 15em;
+		background-color: transparentize($brown, 0.25);
+		height: 240px;
+		position: relative;
+	}
+
+	.offer-content {
+			@include container(1160px);
+			position: relative;
+			text-align: left;
+			z-index: 60;
+
+			h1 {
+				position: relative;
+				top: 8em;
+				left: -13em;
+				color: $white;
+				font-weight: 300;
+			}
+
+			h3 {
+				position: relative;
+				top: 13em;
+				left: -22.2em;
+				color: $white;
+				font-weight: 300;
+			}
+
+			a {
+				position: relative;
+				top: 13em;
+				left: -21.6em;
+			}
+		}
+
+	.about {
+		@include container(1160px);
+		position: relative;
+		top: 35em;
+		padding-left: 5em;
+
+		.content {
+			@include span(5 first);
+			color: $brown;
+
+			p {
+				font-size: 1.3rem;
+			}
+		}
+	}
+
+	span.line {
+		width: 45%;
+		display: block;
+		height: 4px;
+		background-color: $green;
+		position: relative;
+		top: 38em;
+	}
+}
+
+#products {
+	position: relative;
+	z-index: 30;
+	top: -18em;
+	padding-bottom: 100px;
+
+	.container {
+		@include container(1000px);
+		padding-top: 5em;
+
+		h2 {
+			margin-bottom: 2em;
+		}
+
+		a.block {
+			height: 300px;
+			text-align: center;
+			display: block;
+			position: relative;
+			@include span(4);
+			padding: 0;
+			margin-bottom: 2.3em;
+			text-decoration: none;
+
+			span {
+				width: 80%;
+				height: 270px;
+				display: block;
+				margin: 0 auto;
+				background-color: transparentize($brown, 0.4);
+				border-bottom: 4px solid $green;
+				position: relative;
+				z-index: 250;
+
+				&:hover {
+					.mask {
+						opacity: 1;
+						height: 270px;
+						border-top: 4px solid $green;
+						padding: 90px 50px 0;
+						color: $white;
+						font-size: 1.2rem;
+						@include transition(0.6s);
+					}
+
+					p {
+						opacity: 0;
+					}
+				}
+
+
+				p {
+					padding-top: 120px;
+					color: $white;
+					font-size: 1.5rem;
+				}
+			}
+
+			.box-1 {
+				background: url(../img/laminate.jpg) center center no-repeat;
+				@include background-size(cover);
+				position: relative;
+				//overflow: hidden;
+
+				.mask {
+					width: 100%;
+					height: 0;
+					position: absolute;
+					bottom: 0;
+					background-color: transparentize($brown, 0.05);
+					opacity: 0;
+					border-bottom: none;
+					color: $green;
+					font-size: 0.2rem;
+					@include transition(0.6s);
+				}
+			}
+
+			.box-2 {
+				background: url(../img/artvinyl.jpg) center center no-repeat;
+				@include background-size(cover);
+			}
+			.box-3 {
+				background: url(../img/parquet.jpg) center center no-repeat;
+				@include background-size(cover);
+			}
+			.box-4 {
+				background: url(../img/quartz.jpg) center center no-repeat;
+				@include background-size(cover);
+			}
+			.box-5 {
+				background: url(../img/cork.jpg) center center no-repeat;
+				@include background-size(cover);
+			}
+			.box-6 {
+				background: url(../img/plinth.jpg) center center no-repeat;
+				@include background-size(cover);
+			}
+			.box-7 {
+				background: url(../img/accessories.jpg) center center no-repeat;
+				@include background-size(cover);
+			}
+		}
+	}
+
+	.top-right-img {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 600px;
+		width: 35%;
+		display: block;
+		float: right;
+		background: url(../img/wood-top-right.png) center top no-repeat;
+		@include background-size(100%);
+	}
+
+	.bottom-left-img {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 800px;
+		width: 35%;
+		display: block;
+		float: left;
+		background: url(../img/wood-bottom-left.png) center bottom no-repeat;
+		@include background-size(100%);
+	}
+
+	.tree {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		height: 600px;
+		width: 38%;
+		display: block;
+		float: right;
+		background: url(../img/tree.png) center bottom no-repeat;
+		@include background-size(100%);
+	}
+}
+
+#services {
+	padding: 100px 0;
+	color: $white;
+	position: relative;
+	z-index: 50;
+	top: -18em;
+	background: url(../img/services-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+
+	.container {
+		@include container(1000px);
+		
+		h2 {
+			margin-bottom: 1em;
+		}
+
+		a.block {
+			height: 200px;
+			text-align: center;
+			display: block;
+			position: relative;
+			@include span(3);
+			padding: 0;
+			margin-bottom: 2.3em;
+			text-decoration: none;
+
+			span {
+				width: 80%;
+				height: 200px;
+				display: block;
+				margin: 0 auto;
+				background-color: transparentize($beige, 0.4);
+				border-bottom: 4px solid $green;
+
+
+				p {
+					padding-top: 80px;
+					color: $brown;
+					font-size: 1.5rem;
+					font-weight: bold;
+				}
+			}
+
+			.box-1 {
+				background: url(../img/service-1.jpg) center center no-repeat;
+				@include background-size(cover);
+			}
+
+			.box-2 {
+				background: url(../img/service-2.jpg) center center no-repeat;
+				@include background-size(cover);
+			}
+
+			.box-3 {
+				background: url(../img/service-3.jpg) center center no-repeat;
+				@include background-size(cover);
+			}
+
+			.box-4 {
+				background: url(../img/service-4.jpg) center center no-repeat;
+				@include background-size(cover);
+			}
+		}
+
+		a.btn {
+			float: right;
+			margin-top: 1.5em;
+		}
+
+	}
+}
+
+#portfolio {
+	position: relative;
+	z-index: 48;
+	top: -18em;
+	padding-bottom: 100px;
+
+	.top-right-img {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 1000px;
+		width: 35%;
+		display: block;
+		float: right;
+		background: url(../img/portfolio-top-right.png) center top no-repeat;
+		@include background-size(100%);
+	}
+
+	.bottom-left-img {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 800px;
+		width: 35%;
+		display: block;
+		float: left;
+		background: url(../img/portfolio-bottom-left.jpg) center bottom no-repeat;
+		@include background-size(100%);
+	}
+
+	span.line {
+		width: 45%;
+		display: block;
+		height: 4px;
+		background-color: $green;
+		position: relative;
+		float: right;
+		top: 14em;
+	}
+
+	.container {
+		@include container(1000px);
+		padding: 100px 0;
+		position: relative;
+		z-index: 40;
+
+		h2 {
+			margin-bottom: 1.7em;
+		}
+
+		a.block {
+			@include span(4);
+			height: 333px;
+
+
+			img {
+				width: 100%;
+				border-top: 4px solid $green;
+			}
+		}
+
+	}
+
+	.partners {
+		position: relative;
+		z-index: 52;
+		@include container(1000px);
+
+		p {
+			font-size: 2rem;
+			margin-bottom: 2em;
+		}
+	}
+}
+
+#discount {
+	position: relative;
+	z-index: 49;
+	top: -18em;
+	color: $white;
+	text-align: center;
+	background: url(../img/discount-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+
+	.container {
+		@include container(1000px);
+		padding: 150px 0;
+
+		h2 {
+			font-weight: 300;
+			margin-bottom: 1.5em;
+			margin-top: 0;
+		}
+
+		.input {
+			@include span(4);
+
+			input {
+				width: 96%;
+				height: 60px;
+				border: none;
+				font-size: 1.2rem;
+				padding-left: 1em;
+				text-transform: uppercase;
+				font-family: 'Open Sans Condensed', sans-serif;
+				font-weight: 300;
+
+				&:focus {
+					outline-color: lighten($green, 10);
+				}
+			}
+		}
+
+		.button {
+			@include span(4 last);
+			
+			.btn {
+				width: 90%;
+				height: 60px;
+				font-family: 'Open Sans Condensed', sans-serif;
+				font-weight: 300;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
+
+#contacts {
+	padding: 0;
+	position: relative;
+	top: -18em;
+
+	.container {
+		@include container(100%);
+
+		.map {
+			@include span(6 first);
+			background: url(../img/map.jpg) center center no-repeat;
+			@include background-size(cover);
+			height: 400px;
+			position: relative;
+			z-index: 50;
+
+			.arrow {
+				position: relative;
+				right: -350px;
+				top: 140px;
+				display: none;
+			}
+		}
+
+		.address {
+			@include span(6 last);
+			background: url(../img/contacts-bg.jpg) left center no-repeat;
+			@include background-size(cover);
+			height: 400px;
+			position: relative;
+			z-index: 51;
+			padding: 70px 0 0 80px;
+
+			p {
+				font-size: 1.5em;
+				font-weight: 700;
+
+				a {
+					text-decoration: none;
+					color: $brown;
+				}
+			}
+		}
+	}
+}
+
+footer {
+	position: relative;
+	top: -18em;
+	background: url(../img/footer-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	color: $white;
+	padding-top: 100px;
+
+	.container {
+		@include container(1160px);
+
+		.copy {
+			@include span(6 first);
+		}
+
+		.logo {
+			@include span(6 last);
+
+			img {
+				float: right;
+			}
+		}
+	}
+
+	
+}
