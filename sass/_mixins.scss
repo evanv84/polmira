@@ -18,3 +18,10 @@
 	-o-transform: $transform;
 	transform: $transform;
 }
+
+@mixin transform-origin($transform) {
+	-webkit-transform-origin: $transform;
+	-moz-transform-origin: $transform;
+	-o-transform-origin: $transform;
+	transform-origin: $transform;
+}

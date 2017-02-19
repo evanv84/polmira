@@ -3,17 +3,87 @@
 @import "variables";
 @import "mixins";
 
+.top-nav {
+	width: 100%;
+	height: 30px;
+	position: fixed;
+	background-color: darken($brown, 2);
+	color: $white;
+	padding-top: 5px;
+	z-index: 505;
+	display: block;
+	
+	
+	a {
+		text-decoration: none;
+		color: $white;
+		@include transition(0.5s);
+		
+		&:hover {
+			color: $green;
+			@include transition(0.5s);
+		}
+	}
+	
+	.content {
+		@include container(1160px);
+		
+		p {
+			margin: 0;
+		}
+		
+		.address {
+			@include span(5 of 12);
+			text-align: left;
+			font-weight: bold;
+			
+			@include breakpoint($tablet) {
+				@include span(12 of 12);
+				padding-left: 2rem;
+			}
+			@include breakpoint($phone) {
+				padding-left: 1rem;
+			}
+		}
+		
+		.email {
+			@include span(4 at 6 of 12);
+			text-align: center;
+			@include breakpoint($tablet) {
+				display: none;
+			}
+		}
+
+		.phone {
+			@include span(3 at 9 of 12);
+			text-align: right;
+			margin-right: 0;
+			font-weight: bold;
+			@include breakpoint($tablet) {
+				display: none;
+			}
+		}
+
+	}
+
+}
+
 nav {
 	width: 100%;
 	height: 80px;
 	position: fixed;
+	margin-top: 30px;
 	background-color: transparentize($brown, 0);
 	z-index: 500;
 	top: 0;
+	background: url(../img/footer-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	@include transition(0.5s);
 	//transform: translateY(-80px);
 	.nav-wrapper {
 		@include container(1160px);
 		margin-top: 15px;
+		@include transition(0.5s);
 		@include breakpoint($tablet) {
 			@include container(100%);
 		}
@@ -21,6 +91,7 @@ nav {
 		.brand {
 			@include span(4 of 12);
 			@include transition(0.5s);
+			margin-top: 3px;
 			@include breakpoint($tablet) {
 				padding-left: 30px;
 			}
@@ -36,11 +107,12 @@ nav {
 				color: $beige;
 				@include transition(0.5s);
 				&:hover {
-					color: $beige;
+					color: $green;
 				}
 
 				&.active {
-					color: $beige;
+					color: $green;
+					font-weight: 700;
 				}
 			}
 			@include breakpoint($phone) {
@@ -52,14 +124,14 @@ nav {
 			}
 		}
 
+		.menu ul a:last-child li {
+			padding-right: 0;
+		}
+
 		.menu ul a li {
 			list-style: none;
 			display: inline-block;
-			padding: 0 2em;
-
-			&:last-child {
-				padding-right: 0;
-			}
+			padding: 0 1em;
 		}
 	}
 

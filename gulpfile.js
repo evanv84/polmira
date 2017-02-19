@@ -17,7 +17,7 @@ var gulp = require('gulp'),
 // ////////////////////////////
 
 gulp.task('scripts', function(){
-	gulp.src(['js/**/*.js', '!js/**/*.min.js'])
+	gulp.src(['js/**/*.js', '!js/**/*.min.js', '!js/**/jquery.fancybox.pack.js'])
 		.pipe(plumber())
 		.pipe(rename({suffix:'.min'}))
 		.pipe(uglify())
@@ -76,7 +76,7 @@ gulp.task('build:copy', ['build:cleanfolder'], function(){
 gulp.task('build:remove', ['build:copy'], function(cb){
 	del([
 		'build/js/!(*.min.js)',
-		'build/css/!(*.min.css)',
+		'build/css/main.css',
 		'build/bower_components/',
 		'build/node_modules/',
 		'build/package.json',

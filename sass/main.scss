@@ -11,6 +11,7 @@
 @import "buttons";
 @import "nav";
 
+
 //fonts
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,cyrillic);
 
@@ -42,8 +43,10 @@ body {
 }
 
 .wrapper {
-	height: 6025px;
+	height: 100%;
     overflow: hidden;
+    // background-color: $brown;
+    // padding: 0 2rem;
 }
 
 h2 {
@@ -51,129 +54,267 @@ h2 {
 }
 
 header#top {
-	background: url(../img/header-bg-clear.png) center center no-repeat;
+	background: url(../img/header-bg.jpg) center center no-repeat;
 	@include background-size(cover);
 	//@include container(100%);
-	height: 1600px;
+	height: auto;
 	position: relative;
 	z-index: 52;
-
-	.offer-box {
-		@include span(7 first);
-		margin-top: 15em;
-		background-color: transparentize($brown, 0.25);
-		height: 240px;
-		position: relative;
+	border-bottom: 4px solid $green;
+	padding-bottom: 2rem;
+	@include breakpoint($phone) {
+		height: 500px;
 	}
 
 	.offer-content {
 			@include container(1160px);
 			position: relative;
-			text-align: left;
+			text-align: center;
 			z-index: 60;
-
-			h1 {
-				position: relative;
-				top: 8em;
-				left: -13em;
-				color: $white;
-				font-weight: 300;
+			padding-top: 9rem;
+			@include breakpoint($tablet) {
+				text-align: center;
+				height: 240px;
 			}
 
-			h3 {
-				position: relative;
-				top: 13em;
-				left: -22.2em;
-				color: $white;
-				font-weight: 300;
+			.offer-block {
+				display: inline-block;
+				padding: 2rem;
+				background-color: transparentize($brown, 0.2);
+				
+				img {
+					display: block;
+					margin: 0 auto;
+					max-width: 100%;
+				}
+				
+				h1 {
+					color: $white;
+					font-weight: 300;
+					@include breakpoint($tablet) {
+
+					}
+				}
+
+				.old-price {
+					text-decoration: line-through;
+				}
+
+				span.collection {
+					color: $white;
+					position: relative;
+					top: -0.6rem;
+					font-size: 2rem;
+				}
+
+				h3 {
+					color: $green;
+					font-weight: 300;
+					margin-bottom: 2rem;
+					@include breakpoint($tablet) {
+
+					}
+				}
+
+				a {
+					@include breakpoint($tablet) {
+
+					}
+				}
 			}
 
-			a {
-				position: relative;
-				top: 13em;
-				left: -21.6em;
-			}
+			
 		}
 
+	.scroll-btn span {
+		display: none;
+		position: absolute;
+		top: 590px;
+		left: 50%;
+		width: 24px;
+		height: 24px;
+		z-index: 500;
+		margin-left: -12px;
+		border-left: 1px solid #fff;
+		border-bottom: 1px solid #fff;
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+		-webkit-animation: sdb05 1.5s infinite;
+		animation: sdb05 1.5s infinite;
+		box-sizing: border-box;
+		
+		@include breakpoint($phone) {
+			display: none;
+		}
+	}
+	@-webkit-keyframes sdb05 {
+		0% {
+			-webkit-transform: rotate(-45deg) translate(0, 0);
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+		}
+		100% {
+			-webkit-transform: rotate(-45deg) translate(-20px, 20px);
+			opacity: 0;
+		}
+	}
+	@keyframes sdb05 {
+		0% {
+			transform: rotate(-45deg) translate(0, 0);
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+		}
+		100% {
+			transform: rotate(-45deg) translate(-20px, 20px);
+			opacity: 0;
+		}
+	}
+
+}
+
+#about {
+	padding: 2rem 0;
 	.about {
 		@include container(1160px);
 		position: relative;
-		top: 35em;
 		padding-left: 5em;
+		@include breakpoint($tablet) {
+		}
+		@include breakpoint($phone) {
+			padding-left: 0.5em;
+		}
 
 		.content {
-			@include span(5 first);
+			@include span(7 first);
 			color: $brown;
+			@include breakpoint($phone) {
+				@include span(12);
+				padding-left: 1rem;
+				padding-right: 1rem;
+			}
 
 			p {
 				font-size: 1.3rem;
 			}
 		}
+
+		.woods {
+			@include span(5 last);
+			opacity: 0;			
+			@include breakpoint($phone) {
+				display: none;
+			}
+			
+			img {
+				position: absolute;
+			}
+
+			#wood-1 {
+				right: 300px;
+				top: 73px;
+			}
+			#wood-2 {
+				right: 260px;
+				top: 55px;
+			}
+			#wood-3 {
+				right: 220px;
+				top: 31px;
+				
+			}
+			#wood-4 {
+				right: 180px;
+				top: 15px;
+			}
+		}
 	}
 
 	span.line {
-		width: 45%;
+		width: 100%;
 		display: block;
 		height: 4px;
 		background-color: $green;
 		position: relative;
-		top: 38em;
+		top: 3em;
+		@include breakpoint($tablet) {
+			top: 33em;
+		}
+		@include breakpoint($phone) {
+			display: none;
+		}
 	}
 }
 
 #products {
 	position: relative;
 	z-index: 30;
-	top: -18em;
 	padding-bottom: 100px;
 
 	.container {
 		@include container(1000px);
 		padding-top: 5em;
+		@include breakpoint($phone) {
+			@include container(90%);
+		}
 
 		h2 {
-			margin-bottom: 2em;
+			margin-bottom: 1em;
+			@include breakpoint($phone) {
+				position: relative;
+				z-index: 60;
+			}
 		}
 
 		a.block {
-			height: 300px;
+			height: 200px;
 			text-align: center;
 			display: block;
 			position: relative;
-			@include span(4);
+			@include span(3);
 			padding: 0;
 			margin-bottom: 2.3em;
 			text-decoration: none;
+			@include breakpoint($phone) {
+				@include span(6);
+				margin-bottom: 0;
+				height: 270px;
+			}
 
 			span {
 				width: 80%;
-				height: 270px;
+				height: 200px;
 				display: block;
 				margin: 0 auto;
 				background-color: transparentize($brown, 0.4);
 				border-bottom: 4px solid $green;
 				position: relative;
 				z-index: 250;
+				@include breakpoint($phone) {
+					width: 100%;
+				}
 
 				&:hover {
 					.mask {
 						opacity: 1;
-						height: 270px;
+						height: 200px;
 						border-top: 4px solid $green;
-						padding: 90px 50px 0;
 						color: $white;
 						font-size: 1.2rem;
 						@include transition(0.6s);
 					}
 
 					p {
-						opacity: 0;
+						//opacity: 0;
 					}
 				}
 
 
 				p {
-					padding-top: 120px;
+					padding-top: 80px;
 					color: $white;
 					font-size: 1.5rem;
 				}
@@ -228,7 +369,7 @@ header#top {
 
 	.top-right-img {
 		position: absolute;
-		top: 0;
+		top: -20rem;
 		right: 0;
 		height: 600px;
 		width: 35%;
@@ -236,6 +377,9 @@ header#top {
 		float: right;
 		background: url(../img/wood-top-right.png) center top no-repeat;
 		@include background-size(100%);
+		@include breakpoint($phone) {
+			display: none;
+		}
 	}
 
 	.bottom-left-img {
@@ -248,35 +392,45 @@ header#top {
 		float: left;
 		background: url(../img/wood-bottom-left.png) center bottom no-repeat;
 		@include background-size(100%);
+		@include breakpoint($phone) {
+			display: none;
+		}
 	}
 
-	.tree {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		height: 600px;
-		width: 38%;
-		display: block;
-		float: right;
-		background: url(../img/tree.png) center bottom no-repeat;
-		@include background-size(100%);
-	}
+	// .tree {
+	// 	position: absolute;
+	// 	bottom: 0;
+	// 	right: 0;
+	// 	height: 600px;
+	// 	width: 38%;
+	// 	display: block;
+	// 	float: right;
+	// 	background: url(../img/tree.png) center bottom no-repeat;
+	// 	@include background-size(100%);
+	// 	@include breakpoint($phone) {
+	// 		display: none;
+	// 	}
+	// }
 }
 
 #services {
-	padding: 100px 0;
+	padding: 70px 0 90px;
 	color: $white;
 	position: relative;
 	z-index: 50;
-	top: -18em;
 	background: url(../img/services-bg.jpg) center center no-repeat;
+	background-attachment: fixed;
 	@include background-size(cover);
 
 	.container {
 		@include container(1000px);
+		@include breakpoint($phone) {
+			@include container(90%);
+		}
 		
 		h2 {
 			margin-bottom: 1em;
+			text-align: center;
 		}
 
 		a.block {
@@ -288,6 +442,9 @@ header#top {
 			padding: 0;
 			margin-bottom: 2.3em;
 			text-decoration: none;
+			@include breakpoint($phone) {
+				@include span(12);
+			}
 
 			span {
 				width: 80%;
@@ -302,7 +459,7 @@ header#top {
 					padding-top: 80px;
 					color: $brown;
 					font-size: 1.5rem;
-					font-weight: bold;
+					font-weight: normal;
 				}
 			}
 
@@ -338,7 +495,6 @@ header#top {
 #portfolio {
 	position: relative;
 	z-index: 48;
-	top: -18em;
 	padding-bottom: 100px;
 
 	.top-right-img {
@@ -351,6 +507,9 @@ header#top {
 		float: right;
 		background: url(../img/portfolio-top-right.png) center top no-repeat;
 		@include background-size(100%);
+		@include breakpoint($phone) {
+			display: none;
+		}
 	}
 
 	.bottom-left-img {
@@ -361,8 +520,11 @@ header#top {
 		width: 35%;
 		display: block;
 		float: left;
-		background: url(../img/portfolio-bottom-left.jpg) center bottom no-repeat;
+		background: url(../img/portfolio-bottom-left.png) center bottom no-repeat;
 		@include background-size(100%);
+		@include breakpoint($phone) {
+			display: none;
+		}
 	}
 
 	span.line {
@@ -373,26 +535,38 @@ header#top {
 		position: relative;
 		float: right;
 		top: 14em;
+		@include breakpoint($phone) {
+			display: none;
+		}
 	}
 
 	.container {
 		@include container(1000px);
-		padding: 100px 0;
+		padding: 100px 0 50px;
 		position: relative;
 		z-index: 40;
+		@include breakpoint($phone) {
+			@include container(90%);
+			padding: 50px 0;
+		}
 
 		h2 {
 			margin-bottom: 1.7em;
 		}
 
 		a.block {
-			@include span(4);
-			height: 333px;
+			@include span(3);
+			height: 250px;
+			@include breakpoint($phone) {
+				@include span(12);
+			}
 
 
 			img {
-				width: 100%;
+				width: 80%;
 				border-top: 4px solid $green;
+				display: block;
+				margin: 0 auto;
 			}
 		}
 
@@ -402,6 +576,9 @@ header#top {
 		position: relative;
 		z-index: 52;
 		@include container(1000px);
+		@include breakpoint($phone) {
+			@include container(90%);
+		}
 
 		p {
 			font-size: 2rem;
@@ -413,15 +590,18 @@ header#top {
 #discount {
 	position: relative;
 	z-index: 49;
-	top: -18em;
 	color: $white;
 	text-align: center;
 	background: url(../img/discount-bg.jpg) center center no-repeat;
+	background-attachment: fixed;
 	@include background-size(cover);
 
 	.container {
 		@include container(1000px);
 		padding: 150px 0;
+		@include breakpoint($phone) {
+			@include container(90%);
+		}
 
 		h2 {
 			font-weight: 300;
@@ -431,6 +611,10 @@ header#top {
 
 		.input {
 			@include span(4);
+			@include breakpoint($phone) {
+				@include span(12);
+				margin-bottom: 1em;
+			}
 
 			input {
 				width: 96%;
@@ -450,16 +634,67 @@ header#top {
 
 		.button {
 			@include span(4 last);
+			@include breakpoint($phone) {
+				@include span(12);
+			}
 			
 			.btn {
-				width: 90%;
+				width: 96%;
 				height: 60px;
 				font-family: 'Open Sans Condensed', sans-serif;
 				font-weight: 300;
 				&:hover {
 					cursor: pointer;
 				}
+				@include breakpoint($phone) {
+				}
 			}
+		}
+	}
+}
+
+#brands {
+	padding-top: 150px;
+	padding-bottom: 80px;
+	text-align: center;
+	
+	.container {
+		@include container(1000px);
+		
+		.brand-block {
+			@include span(4);
+			padding: 1rem 2rem;
+			margin-bottom: 2rem;
+			
+			.brand-inner {
+			}
+			
+			img {
+				margin-bottom: 2rem;
+				max-width: 100%;
+			}
+
+			.btn {
+				background: $brown;
+				border: none;
+			}
+		}
+	}
+}
+
+#post-content {
+	padding-top: 150px;
+	padding-bottom: 80px;
+	
+	.container {
+		@include container(1000px);
+		
+		p {
+			font-family: 'Helvetica', sans-serif;
+		}
+
+		img {
+			max-width: 100%;
 		}
 	}
 }
@@ -467,7 +702,6 @@ header#top {
 #contacts {
 	padding: 0;
 	position: relative;
-	top: -18em;
 
 	.container {
 		@include container(100%);
@@ -479,6 +713,9 @@ header#top {
 			height: 400px;
 			position: relative;
 			z-index: 50;
+			@include breakpoint($phone) {
+				@include span(12);
+			}
 
 			.arrow {
 				position: relative;
@@ -496,6 +733,10 @@ header#top {
 			position: relative;
 			z-index: 51;
 			padding: 70px 0 0 80px;
+			@include breakpoint($phone) {
+				@include span(12);
+				padding: 70px 0 70px 2em;
+			}
 
 			p {
 				font-size: 1.5em;
@@ -512,17 +753,24 @@ header#top {
 
 footer {
 	position: relative;
-	top: -18em;
 	background: url(../img/footer-bg.jpg) center center no-repeat;
 	@include background-size(cover);
 	color: $white;
 	padding-top: 100px;
+	padding-bottom: 30px;
 
 	.container {
 		@include container(1160px);
+		@include breakpoint($phone) {
+			@include container(90%);
+		}
 
 		.copy {
 			@include span(6 first);
+			@include breakpoint($phone) {
+				@include span(12);
+				text-align: center;
+			}
 		}
 
 		.logo {
@@ -530,9 +778,113 @@ footer {
 
 			img {
 				float: right;
+				margin-top: 15px;
+			}
+			@include breakpoint($phone) {
+				display: none;
 			}
 		}
 	}
 
 	
+}
+
+.remodal {
+	background: url(../img/modal-bg.jpg) center center no-repeat;
+	@include background-size(cover);
+	border-bottom: 4px solid $green;
+
+	.remodal-close {
+		top: -50px;
+		left: 710px;
+		opacity: 0.7;
+		@include transition(0.6s);
+
+		&:hover {
+			@include transition(0.6s);
+			@include transform(rotate(180deg) scale(1.2));
+			@include transform-origin(50% 50%);
+			opacity: 1;
+		}
+	}
+
+	.remodal-close:before {
+		display: none;
+	}
+
+	.remodal-close span:nth-child(1) {
+		position: absolute;
+		top: 16px;
+		left: -2px;
+		height: 2px;
+		width: 40px;
+		background-color: $white;
+		@include transform(rotate(45deg));
+	}
+
+	.remodal-close span:nth-child(2) {
+		position: absolute;
+		top: 16px;
+		left: -2px;
+		height: 2px;
+		width: 40px;
+		background-color: $white;
+		@include transform(rotate(135deg));
+	}
+}
+
+.text-modal {
+	max-width: 60%;
+	text-align: left;
+
+	h2 {
+		font-weight: 300;
+		font-size: 1.7rem;
+		margin-top: 0;
+	}
+}
+
+.law {
+	max-width: 60%;
+	text-align: left;
+
+	p {
+		font-weight: 300;
+		font-size: 1.1rem;
+		margin-top: 2rem;
+		margin-bottom: 0;
+	}
+}
+
+.form-modal {
+	width: 60%;
+	.input {
+		input {
+			width: 100%;
+			height: 40px;
+			margin-bottom: 1rem;
+			padding-left: 1rem;
+		}
+	} 
+
+	.btn {
+		width: 100%;
+		height: 60px;
+		background-color: $green;
+	}
+}
+
+.ui-tooltip {
+	padding: 8px;
+	position: absolute;
+	z-index: 9999;
+	max-width: 300px;
+}
+
+.thanks-page {
+	height: 100vh !important;
+	
+	.offer-block {
+		margin-top: 15% !important;
+	}
 }
